@@ -8,6 +8,7 @@ import sys
 
 
 def main():
+    """Main Function."""
     if sys.argv[1] == 'help':
         print "python main.py threads host port"
         print "example: python main.py 2 http://localhost 8080"
@@ -22,6 +23,7 @@ def main():
 
 
 def device():
+    """Creates a new windsock devices and sends output to url."""
     url = ("%s:%s" % (sys.argv[2], sys.argv[3]))
     data = {}
     print("Device started\n")
@@ -51,7 +53,7 @@ def device():
         data['wind speed'] = new_ws
         old_ws = new_ws
 
-        new_wd = random.randint(old_wd - 1, old_wd + 1)
+        new_wd = random.randint(old_wd - 2, old_wd + 2)
         if new_ws < 0:
             old_ws = 0
             continue
@@ -65,7 +67,8 @@ def device():
 
 
 def device_running():
-    if random.randint(0, 1000) == 23:
+    """Device has a 1 in 1000 chance of failing on each run"""
+    if random.randint(0, 10000) == 23:
         return False
     else:
         return True
