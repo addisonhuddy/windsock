@@ -28,6 +28,14 @@ def device():
     data = {}
     print("Device started\n")
 
+    # Device coordinates
+    time.sleep(random.randint(0, 2))
+    latitude = random.uniform(-90, 90)
+    longitude = random.uniform(-180, 180)
+
+    data['latitude'] = latitude
+    data['longitude'] = longitude
+
     device_id = str(random.randint(0, 1000)) + \
         (random.sample(['A', 'B', 'C', 'D', 'E'], 1))[0]
 
@@ -35,7 +43,7 @@ def device():
     data['device id'] = device_id
 
     # Wind speed
-    time.sleep(random.randint(0, 10))
+    time.sleep(random.randint(0, 4))
     double_random = random.uniform(0.0, 50.0)
     start_ws = random.uniform(0.0, double_random)
     old_ws = start_ws
