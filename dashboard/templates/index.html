@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Windsock Demo</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/build/components.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Streaming Windsock Data All Over the Globe</a>
+</head>
+<body>
+    <div class="paxl">
+        <div class="container">
+            <h1 class="type-neutral-2 pull-left mvn">
+                <span>Windsock</span>
+                <span class="em-max">Data</span>
+            </h1>
+            <ul class="list-inline pull-right mtl lhxl">
+                <li>
+                    <a class="link-lowlight-inverse" href="/live-data">Raw Data</a>
+                </li>
+            </ul>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-{#        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-{#          <ul class="nav navbar-nav">#}
-{#            <li><a href="#">Home</a></li>#}
-{#          </ul>#}
-{#        </div><!-- /.navbar-collapse -->#}
-      </div>
     </div>
 
+    <!-- Graphs -->
+    <div class="container">
         <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container-fluid">
-        <br/>
-        <p>Live data using PCF, GPDB, SCDF, and Gemfire</p>
-      </div>
-    </div>
 
-    <div class="container-fluid">
-      <!-- Example row of columns -->
-      <div class="row">
-
-          <div class="container-fluid" id="data-container"></div>
-
+        <div class="container-fluid">
+            <!-- Example row of columns -->
+            <div class="jumbotron">
+                <div class="container-fluid">
+                    <br/>
+                    <p>Live data using PCF, GPDB, SCDF, and Gemfire</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid" id="avg-speed-on-earth"></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="container-fluid" id="avg-speed-device"></div>
+            </div>
+            <input label="Enter Device" id="device-id-input" placeholder="Device ID"/>
+            <button onclick="newDeviceID()"type="button" name="button" class="btn btn-primary">Enter</button>
         </div>
-    </div>
-    <hr>
 
-      <footer>
-        <p>Pivotal Hack Day May 2016</p>
-      </footer>
-    </div> <!-- /container -->
+
+        <footer>
+            <p>Pivotal Hack Day May 2016</p>
+        </footer>
+    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/highcharts-more.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
     <script src="/static/js/highcharts.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  </body>
+    <script src="/static/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
 </html>
