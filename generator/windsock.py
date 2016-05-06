@@ -42,7 +42,7 @@ def device():
         (random.sample(['A', 'B', 'C', 'D', 'E'], 1))[0]
 
     # Device ID
-    data['device id'] = device_id
+    data['device_id'] = device_id
 
     # Time Stamp
     data['timestamp'] = calendar.timegm(time.gmtime())
@@ -63,14 +63,14 @@ def device():
         if new_ws < 0:
             old_ws = 0
             continue
-        data['wind speed'] = new_ws
+        data['wind_speed'] = new_ws
         old_ws = new_ws
 
         new_wd = random.randint(old_wd - 2, old_wd + 2)
         if new_ws < 0:
             old_ws = 0
             continue
-        data['wind direction'] = new_wd
+        data['wind_direction'] = new_wd
         old_wd = new_wd
 
         json_msg = json.dumps(data)
