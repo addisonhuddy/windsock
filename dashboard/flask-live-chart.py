@@ -20,8 +20,8 @@ def live_data():
     response.content_type = 'application/json'
     return response
 
-@app.route('/device/<device_id>')
-def device_data():
+@app.route('/device/<int:device_id>')
+def device_data(device_id):
     # TODO: point application at gemfire instance
     url = "http://192.168.33.10:8181/gemfire-api/v1/windsock/device/" % device_id
     data = requests.get(url).content

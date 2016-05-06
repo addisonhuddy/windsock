@@ -29,7 +29,9 @@ function requestData() {
 }
 
 function requestDeviceData(id) {
-    var device_url = '/device/%s'.interpolate(id);
+    var s = ["/device", id]
+    var device_url = s.join("/");
+    console.log(device_url)
     $.ajax({
         url: device_url,
         success: function(point) {
