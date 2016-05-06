@@ -1,6 +1,7 @@
 """Windsock."""
 import random
 import time
+import calendar
 import threading
 import json
 import requests
@@ -24,6 +25,7 @@ def main():
 
 def device():
     """Creates a new windsock devices and sends output to url."""
+    v_headers = {'content-type': 'application/json'}
     url = ("%s:%s" % (sys.argv[2], sys.argv[3]))
     data = {}
     print("Device started\n")
@@ -41,6 +43,9 @@ def device():
 
     # Device ID
     data['device id'] = device_id
+
+    # Time Stamp
+    data['timestamp'] = calendar.timegm(time.gmtime())
 
     # Wind speed
     time.sleep(random.randint(0, 4))
@@ -69,14 +74,14 @@ def device():
         old_wd = new_wd
 
         json_msg = json.dumps(data)
-        r = requests.post(url, data=json_msg)
+        r = requests.post(url, data=json_msg, headers=v_headers)
         print(r.status_code, r.reason)
         time.sleep(random.randint(0, 1))
 
 
 def device_running():
-    """Device has a 1 in 1000 chance of failing on each run"""
-    if random.randint(0, 10000) == 23:
+    """Device has a 1% chance of failing on each run"""
+    if random.randint(0, 100) == 23:
         return False
     else:
         return True
